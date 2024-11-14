@@ -18,10 +18,10 @@ const Layout: React.FC<{children:ReactNode}> = ({children}) => {
   return (
     <div className="layout-page">
       <nav className="navbar">
-        <h1>vote app</h1>
+        <h1>War Simulator</h1>
+        <h3>welcome {user?.userName}</h3>
         <div className="nav-links">
             <Link to="/">Home</Link>
-            {user && user.IsAdmin && <Link to="/Statistics">Statistics</Link>}
             <button onClick={() => logOut()}>logOut</button>
         </div>
       </nav>
@@ -31,10 +31,9 @@ const Layout: React.FC<{children:ReactNode}> = ({children}) => {
       <footer className="layout-footer">
         <h2>About app</h2>
         <p>
-          vote in 2023 is a web application that allows users to vote on a
-          specific issue or topic and receive real-time results.
-
-
+        War Simulator is a web application that allows users to simulate a war between two countries,
+        and track the progress of the war,
+        and view the results of the war.
         </p>
       </footer>
     </div>

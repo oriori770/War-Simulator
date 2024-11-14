@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../component/Layout/Layout";
-import Vote from "../pages/Vote";
+import Idf from "../pages/Idf";
 import Login from "../pages/LoginPage";
 import Rgister from "../pages/RgisterPage";
-import Statistics from "../pages/Statistics";
+import Terrorists from "../pages/Terrorists";
 import MainPage from "../pages/MainPage";
 const router = createBrowserRouter(
   [
@@ -17,10 +17,10 @@ const router = createBrowserRouter(
       path: "/rgister", element: <Layout > <Rgister/> </Layout>,
     },
     {
-      path: "/Statistics", element: <Layout> <Statistics/> </Layout>,
+      path: "/terrorists", element: <Layout> <Terrorists/> </Layout>,
     },
     {
-      path: "/vote", element: <Layout> <Vote/> </Layout>,
+      path: "/idf", element: <Layout> <Idf/> </Layout>,
     },
   ]);
   export default router

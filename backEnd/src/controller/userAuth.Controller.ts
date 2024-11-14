@@ -6,13 +6,13 @@ import { log } from "console";
 export async function postNewUser(req: Request, res: Response): Promise<IUser | void> {
     console.log(req.body);
     
-    const { userName, password  } = req.body;
+    const { userName, password, organization } = req.body;
     const existingUser: IUser | null = await studentModel.findOne({ userName});
     if (existingUser) {
         res.status(400).json({ message: "User already exists" });
         return;
     }
-    const user = await addNewUser({ userName, hashedPassword:password });
+    const user = await addNewUser({ userName, organization, hashedPassword:password });
     res.status(201).json({ message: "User created successfully" , user});
 };
 export async function postLogin(req: Request, res: Response): Promise<any> {
@@ -28,7 +28,7 @@ export async function postLogin(req: Request, res: Response): Promise<any> {
             res.status(401).json({ message: "Incorrect userName or password" });
             return;
         }
-        const token = generateToken(user._id as string, user.IsAdmin);
-        res.status(200).json({ message: "Login successful", user, token});
+        const token = generateToken(user._id as string, user.organization);
+        res.status(200).json({ message: "Login successful", user, token });
     }
 }

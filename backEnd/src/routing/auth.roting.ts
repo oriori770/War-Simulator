@@ -7,5 +7,3 @@ export const UserAuthRouter = express.Router();
 
 UserAuthRouter.post("/register", tryCatchHandler(postNewUser));
 UserAuthRouter.post("/login", tryCatchHandler(postLogin))
-
-    

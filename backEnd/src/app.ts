@@ -30,4 +30,6 @@ app.listen(PORT, () => {
 });
 
 
+import { createNewMissiles, readMissileByArea, readMissileByUserId } from "./dal/missile.dal";
 
+// createNewMissiles({name:"Iron Domhhe", status:"Hit", to:"uuu", LaunchedBy:"673475c5ae8ab0b46137a7cd"});

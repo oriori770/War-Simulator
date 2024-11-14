@@ -1,5 +1,4 @@
 import UserModel, {IUser} from "../model/User.model"; 
-import candidateModel,{ICanidate} from "../model/Candidate.model"
 
 export async function addNewUser(user:Partial<IUser> ): Promise<IUser> {
     const newUser = new UserModel(user);

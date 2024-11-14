@@ -6,7 +6,7 @@ import { log } from "console";
 
 
 interface AuthRequest extends Request {
-    user?: { userId: string, IsAdmin?: boolean };
+    user?: { userId: string, organization: string};
 };  
 
 export const authMiddleware = (req: AuthRequest, res: Response, next: NextFunction): void => {    
@@ -16,7 +16,7 @@ export const authMiddleware = (req: AuthRequest, res: Response, next: NextFuncti
         return;
     }
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as { userId: string, IsAdmin: boolean }
+        const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as { userId: string, organization: string, }
         req.user = decoded;
         next();
     } catch (error) {
@@ -24,12 +24,12 @@ export const authMiddleware = (req: AuthRequest, res: Response, next: NextFuncti
     }
 }
 
-export const managerAuthMiddleware = (req: AuthRequest, res: Response, next: NextFunction) => {
+export const IDFAuthMiddleware = (req: AuthRequest, res: Response, next: NextFunction) => {
     log(req.user)
-    if (req.user?.IsAdmin) {
+    if (req.user?.organization === "IDF") {
         next()
     } else {
-        res.status(403).json({message: "Access denied, Managers only!"})
+        res.status(403).json({message: "Access denied, IDF only!"})
     }
 }
 

@@ -1,7 +1,10 @@
 export interface IUser {
     _id: string;
     userName: string;
-    IsVoted: boolean;
-    IsAdmin: boolean;
-    votedFor: string|null;
+    organization: string;
+    resources: IMissileInStock[];
 }
+export interface IMissileInStock {
+    name: string;
+    amount: number;
+  }

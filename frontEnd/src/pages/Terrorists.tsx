@@ -1,21 +1,18 @@
 import React from 'react'
-import ListStatistics from '../component/ListStatistics'
+import ListMissiles from '../component/ListMissiles'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
+import MyTerrorMissiles from '../component/MyTerrorMissiles'
 
 const Statistics = () => {
-  const {user} = useSelector((state: RootState) => state.user)
-
+  const {user} = useSelector((state: RootState) => state)
   if(!user) return <div>no user!! please login first</div>
-  console.log(user);
-  
-  if(!user.IsAdmin) return <div>no admin!! please login first</div>
-  return (
+    return (
     <>
-    
       <div>welcome : {user.userName}</div>
-      <div>Statistics</div>
-      <ListStatistics />
+      <h3> welcome to {user?.organization} </h3>
+      <MyTerrorMissiles />
+      <ListMissiles />
     </>
   )
 }

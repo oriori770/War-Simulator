@@ -7,22 +7,22 @@ import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../store/store'
 import Login from '../component/Login'
 const LoginPage = () => {
-  const emailRef = useRef<HTMLInputElement>(null)
-  const passwordRef = useRef<HTMLInputElement>(null)
-  const Navigate = useNavigate()
-  const dispatch = useDispatch<AppDispatch>();
-  const userlogIn = async (): Promise<void> => { 
-    const response = await login(emailRef.current!.value, passwordRef.current!.value)    
-    if (response) {
-      console.log(response.user, "user");
-      dispatch(setUser(response.user))
-      setToken(response.token)
-      Navigate("/vote")
-    }
-    else {
-      Navigate("/logIn")
-    }
-  }
+  // const emailRef = useRef<HTMLInputElement>(null)
+  // const passwordRef = useRef<HTMLInputElement>(null)
+  // const Navigate = useNavigate()
+  // const dispatch = useDispatch<AppDispatch>();
+  // const userlogIn = async (): Promise<void> => { 
+  //   const response = await login(emailRef.current!.value, passwordRef.current!.value)    
+  //   if (response) {
+  //     console.log(response.user, "user");
+  //     dispatch(setUser(response.user))
+  //     setToken(response.token)
+  //     Navigate("/vote")
+  //   }
+  //   else {
+  //     Navigate("/logIn")
+  //   }
+  // }
     return (
   <>
     <div>Login</div>

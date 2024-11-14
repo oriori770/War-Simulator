@@ -1,7 +1,7 @@
 import  { Request, Response } from "express";
 import {bringsAllUsers, GettingAllCandidate} from "../dal/user.dal"
 
-import classTeacherModel,  {ICanidate} from "../model/Candidate.model";
+import classTeacherModel,  {ICanidate} from "../model/Organizations.model";
 import studentModel, {IUser} from "../model/User.model";
 
 
